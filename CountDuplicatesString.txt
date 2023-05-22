@@ -1,0 +1,43 @@
+
+//  2.1) Java Program to Count Number of Duplicate Words in String
+//  2.2) How to Check if the String Contains 'e' in umbrella
+
+package LAB_EXAM;
+
+public class Que_2 {
+
+    static void numberOfDuplicates(String s) {
+        s = "big black bug bit a big black dog on his big black nose big";
+        s = s.toLowerCase();
+        String words[] = s.split(" ");
+        int count;
+        for (int i = 0; i < words.length; i++) {
+            count = 0;
+            for (int j = i + 1; j < words.length; j++) {
+                if (words[i].equals(words[j])) {
+                    count++;
+                    words[j] = "Visited";
+
+                }
+
+            }
+            if (count > 0 && words[i] != "Visited") {
+                System.out.println(words[i] + "-" + count);
+            }
+        }
+
+    }
+
+    static void checkE() {
+        String s = "umbrella";
+        if (s.contains("e")) {
+            System.out.println("Contains e");
+        } else {
+            System.out.println("Does not contain e");
+        }
+    }
+
+    public static void main(String[] args) {
+        numberOfDuplicates("big black bug bit a big black dog on his big black nose");
+    }
+}

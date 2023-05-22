@@ -1,0 +1,28 @@
+// Write a Java Program to count the number of words in a string using HashMap.Output:
+// Input :Enter String: "This this is is done by Saket Saket";
+// {Saket=2, by=1, this=1, This=1, is=2, done=1}
+
+package LAB_EXAM;
+
+import java.util.HashMap;
+
+public class Que_16 {
+    static void numberOfWord(String s) {
+        HashMap<String, Integer> map = new HashMap<>();
+        s = "This this is is done by Saket Saket";
+        // s = s.toLowerCase();
+        String[] words = s.split(" ");
+        int i = 0;
+
+        while (i < words.length) {
+            map.put(words[i], map.getOrDefault(words[i], 0) + 1);
+            i++;
+
+        }
+        System.out.println(map);
+    }
+
+    public static void main(String[] args) {
+        numberOfWord("This this is is done by Saket Saket");
+    }
+}

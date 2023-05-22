@@ -1,0 +1,57 @@
+// Create a class Student with attributes roll no, name, age and course. Initialize values through parameterized constructor. If age of student is not in between 15 and 21 then generate user-defined exception "AgeNotWithinRangeException". If name contains numbers or special symbols raise exception "NameNotValidException". Define the two exception classes.
+
+package LAB_EXAM;
+
+class AgeNotWithinRangeException extends Exception {
+    AgeNotWithinRangeException(String errorMsg) {
+        super(errorMsg);
+    }
+}
+
+class NameNotValidException extends Exception {
+    NameNotValidException(String errorMsg) {
+        super(errorMsg);
+    }
+}
+
+class Student1 {
+    String name;
+    int roll_no;
+    int age;
+    String course;
+
+    Student1(String name, int roll_no, int age, String course)
+            throws NameNotValidException, AgeNotWithinRangeException {
+        String specialChar = "!@#$%^&*()_+";
+        this.roll_no = roll_no;
+        this.course = course;
+
+        if (age < 15 || age > 21) {
+            throw new AgeNotWithinRangeException("Age is not in range");
+        }
+        for (char ch : name.toCharArray()) {
+            if (specialChar.contains(String.valueOf(ch))) {
+                throw new NameNotValidException("Name not valid");
+            }
+        }
+
+        this.name = name;
+        this.age = age;
+
+    }
+}
+
+public class Que_24 {
+    public static void main(String[] args) {
+        try {
+            Student1 s1 = new Student1("Onkar#", 16, 20, "CS");
+            Student1 s2 = new Student1("onkar", 18, 22, "null");
+
+        } catch (AgeNotWithinRangeException e) {
+            System.out.println(e);
+        } catch (NameNotValidException e2) {
+            System.out.println(e2);
+        }
+
+    }
+}

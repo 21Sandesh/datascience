@@ -1,0 +1,58 @@
+// Write a Java Program to iterate ArrayList using for-loop, iterator, and advance for-loop. Insert 3 Array List.Input 20 30 40Output:
+
+// iterator Loop:
+// 20
+// 30
+// 40
+// Advanced For Loop:
+// 20
+// 30
+// 40
+// For Loop:
+// 20
+// 30
+// 40
+
+package LAB_EXAM;
+
+import java.util.ArrayList;
+
+import java.util.Iterator;
+
+public class Que_15 {
+
+    static void iterateWithIterator(ArrayList<Integer> arrayList) {
+        Iterator<Integer> iterator = arrayList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+
+    static void iterateWithAdvancedForLoop(ArrayList<Integer> arrayList) {
+        for (Integer integer : arrayList) {
+            System.out.println(integer);
+        }
+    }
+
+    static void iterateWithForLoop(ArrayList<Integer> arrayList) {
+        for (int i = 0; i < arrayList.size(); i++) {
+            System.out.println(arrayList.get(i));
+        }
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(20);
+        arrayList.add(30);
+        arrayList.add(40);
+
+        System.out.println("Iterator Loop:");
+        iterateWithIterator(arrayList);
+
+        System.out.println("Advanced For Loop:");
+        iterateWithAdvancedForLoop(arrayList);
+
+        System.out.println("For Loop:");
+        iterateWithForLoop(arrayList);
+    }
+}

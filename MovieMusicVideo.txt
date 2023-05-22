@@ -1,0 +1,60 @@
+// "Write a program, to implement the following hierarchy. Displays information of each class the rectangle represents the classes. The classes Movie and MusicVideo inherits all the members of the class VideoTape.
+
+package LAB_EXAM;
+
+class VideoTape {
+    String Title;
+    int Length;
+    String Available;
+
+    VideoTape(String Title, int lenght, String Available) {
+        this.Title = Title;
+        this.Length = lenght;
+        this.Available = Available;
+    }
+
+    void show() {
+        System.out.print(Title + " " + Length + " " + Available);
+    }
+
+}
+
+class Movie extends VideoTape {
+
+    String DirectorsRating;
+
+    Movie(String Title, int lenght, String Available, String DirectorsRating) {
+        super(Title, lenght, Available);
+        this.DirectorsRating = DirectorsRating;
+    }
+
+    public void show() {
+        super.show();
+        System.out.println(" " + DirectorsRating);
+    }
+
+}
+
+class MusicVideo extends VideoTape {
+    String ArtistCategory;
+
+    MusicVideo(String Title, int lenght, String Available, String ArtistCategory) {
+        super(Title, lenght, Available);
+        this.ArtistCategory = ArtistCategory;
+
+    }
+
+    void show(String Title, int lenght, String Available, String ArtistCategory) {
+        super.show();
+        System.out.println(" " + ArtistCategory);
+    }
+
+}
+
+public class Que_20 {
+    public static void main(String[] args) {
+        Movie m = new Movie("Inception", 160, "True", "9");
+        m.show();
+    }
+
+}

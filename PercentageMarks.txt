@@ -1,0 +1,64 @@
+
+// A Company manufactures Vehicles, which could be a Helicopter, a Car, or a Train depending on the customer’s demand. Each Vehicle instance has a method called move, which prints on the console the nature of movement of the vehicle. For example, the Helicopter Flies in Air, the Car Drives on Road and the Train Runs on Track. Write a program that accepts input from the user on the kind of vehicle the user wants to order, and the system should print out nature of movement. Implement all Java coding best practices to implement this program.
+
+package LAB_EXAM;
+
+import java.util.Scanner;
+
+interface Vehicle {
+    void move();
+}
+
+class Helicopter implements Vehicle {
+    public void move() {
+        System.out.println("Helicopter Flies in Air ");
+    }
+}
+
+class Car implements Vehicle {
+    public void move() {
+        System.out.println("Car Drives on Road ");
+    }
+}
+
+class Train implements Vehicle {
+    public void move() {
+        System.out.println("Train Runs on Track");
+    }
+}
+
+class Company {
+    Vehicle choosedVehicle(String vehicle) {
+        vehicle = vehicle.toLowerCase();
+        switch (vehicle) {
+            case "helicopter":
+                return new Helicopter();
+
+            case "car":
+                return new Car();
+
+            case "train":
+                return new Train();
+
+            default:
+                return null;
+
+        }
+    }
+}
+
+public class Que_4 {
+    public static void main(String[] args) {
+        System.out.println("choose one vehicle \t\nhelicopter\t\ncar\t\ntrain\t\n");
+        Scanner sc = new Scanner(System.in);
+        String choice = sc.nextLine();
+        Company vehicleCompany = new Company();
+        Vehicle vehicle = vehicleCompany.choosedVehicle(choice);
+        if (vehicle != null) {
+            vehicle.move();
+        } else {
+            System.out.println("Enter valid choice");
+        }
+        sc.close();
+    }
+}

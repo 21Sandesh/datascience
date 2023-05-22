@@ -1,0 +1,97 @@
+
+//addition GUI
+package LAB_EXAM;
+
+import java.awt.Color;
+import java.awt.event.*;
+import javax.swing.*;
+
+class AdderGUI implements ActionListener {
+    public static JFrame frame;
+    public static JButton add;
+    public static JTextArea resultText;
+    public static JTextArea firstNumText;
+    public static JTextArea secondNumText;
+    public static JButton clear;
+    public static JButton exit;
+
+    public static void main(String[] args) {
+        frame = new JFrame();
+        JPanel panel = new JPanel();
+        frame.setSize(500, 500);
+        panel.setLayout(null);
+
+        JLabel title = new JLabel("Number Addition :");
+        title.setBounds(10, 20, 150, 50);
+        title.setForeground(Color.blue);
+        panel.add(title);
+
+        JLabel firstNumberTitle = new JLabel("First Number :");
+        firstNumberTitle.setBounds(50, 90, 80, 25);
+        panel.add(firstNumberTitle);
+
+        firstNumText = new JTextArea();
+        firstNumText.setBounds(150, 90, 165, 25);
+        panel.add(firstNumText);
+
+        JLabel secondNumberTitle = new JLabel("Second Number :");
+        secondNumberTitle.setBounds(45, 130, 100, 25);
+        panel.add(secondNumberTitle);
+
+        secondNumText = new JTextArea();
+        secondNumText.setBounds(150, 130, 165, 25);
+        panel.add(secondNumText);
+
+        JLabel result = new JLabel("Result :");
+        result.setBounds(100, 170, 100, 25);
+        panel.add(result);
+
+        resultText = new JTextArea();
+        resultText.setBounds(150, 170, 165, 25);
+        resultText.setEditable(false);
+        panel.add(resultText);
+
+        add = new JButton("Add");
+        add.addActionListener(new AdderGUI());
+        add.setBounds(150, 210, 70, 25);
+        panel.add(add);
+
+        clear = new JButton("Clear");
+        clear.addActionListener(new AdderGUI());
+
+        clear.setBounds(250, 210, 70, 25);
+        panel.add(clear);
+
+        exit = new JButton("Exit");
+        exit.addActionListener(new AdderGUI());
+
+        exit.setBounds(350, 300, 70, 25);
+        panel.add(exit);
+
+        frame.add(panel);
+        frame.setResizable(false);
+        frame.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        System.out.println(e.getSource());
+        if (e.getSource() == add) {
+            System.out.println("Add button pressed");
+            int num1 = Integer.valueOf(firstNumText.getText());
+            int num2 = Integer.valueOf(secondNumText.getText());
+            resultText.setText(String.valueOf(num1 + num2));
+        } else if (e.getSource() == clear) {
+            firstNumText.setText(null);
+            secondNumText.setText(null);
+            resultText.setText(null);
+
+        } else if (e.getSource() == exit) {
+            frame.dispose();
+        }
+    }
+}
+
+class Que_10 {
+
+}

@@ -1,0 +1,27 @@
+// . Write the following code in your editor below:
+// A class named Arithmetic with a method named add that takes 2 integers as parameters and returns an integer denoting their sum.
+// A class named Adder that inherits from a superclass named Arithmetic. The main method in the Tester class should print the following: SAMPLE O/P:My superclass is: Arithmetic
+// 42 13 20
+
+package LAB_EXAM;
+
+class Arithmetic {
+
+    int add(int value1, int value2) {
+        return value1 + value2;
+    }
+}
+
+class Adder extends Arithmetic {
+    void printValue(int value1, int value2) {
+        System.out.println("My superclass is: Arithmetic");
+        System.out.println(value1 + " " + value2 + " " + add(value1, value2));
+    }
+}
+
+class Tester {
+    public static void main(String[] args) {
+        Adder adder = new Adder();
+        adder.printValue(42, 13);
+    }
+}

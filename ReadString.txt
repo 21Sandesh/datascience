@@ -1,0 +1,26 @@
+// Write a program to read 10 string from console and then print the sorted strings on console (Use String Class).2) combine two string   3)reverse first string nd dispaly it 
+
+package LAB_EXAM;
+
+import java.util.Scanner;
+
+public class Que_17 {
+    static void stringOperation() {
+        Scanner sc = new Scanner(System.in);
+        String strings[] = new String[10];
+        for (int i = 0; i < 10; i++) {
+            strings[i] = sc.nextLine();
+        }
+
+        System.out.println(strings[0].concat(strings[1]));
+        StringBuilder sb = new StringBuilder(strings[0]);
+        // sb.reverse();
+        System.out.println(sb.reverse());
+        sc.close();
+    }
+
+    public static void main(String[] args) {
+        stringOperation();
+    }
+
+}

@@ -1,0 +1,96 @@
+
+//  2.1) Java Program to Count Number of Duplicate Words in String
+//  2.2) How to Check if the String Contains 'e' in umbrella
+
+package LAB_EXAM;
+
+public class Que_2 {
+
+    static void numberOfDuplicates(String s) {
+        s = "big black bug bit a big black dog on his big black nose big";
+        s = s.toLowerCase();
+        String words[] = s.split(" ");
+        int count;
+        for (int i = 0; i < words.length; i++) {
+            count = 0;
+            for (int j = i + 1; j < words.length; j++) {
+                if (words[i].equ
+// 1.1) Program to remove all repeated elements from an array                                                                                       
+// 1.2) Write a Java program to find the common elements between two arrays of integers.                                                                                        1.2) Write a Java program to find the common elements between two arrays of integers.
+
+package LAB_EXAM;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
+public class Que_1 {
+    static void removeDuplicates(int arr1[]) {
+        HashMap<Integer, String> map = new HashMap<>();
+        ArrayList<Integer> outputArray = new ArrayList<>();
+        for (int i = 0; i < arr1.length; i++) {
+            if (map.get(arr1[i]) != "Visited") {
+                outputArray.add(arr1[i]);
+                map.put(arr1[i], "Visited");
+            }
+        }
+        System.out.println("Array after removed duplicates: " + outputArray);
+    }
+
+    static void removeDuplicatesMethod_2(int arr1[]) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < arr1.length; i++) {
+            set.add(arr1[i]);
+        }
+        System.out.println("Array after removed duplicates(method2): " + set);
+    }
+
+    static void commonElements(int arr1[], int arr2[]) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr2.length; j++) {
+                if (arr1[i] == arr2[j]) {
+                    set.add(arr1[i]);
+                    break;
+                }
+            }
+        }
+        System.out.println("common elementd:" + set);
+
+    }
+
+    public static void main(String[] args) {
+        int arr1[] = { 1, 2, 3, 4, 5, 5, 6, 7, 7 };
+        int arr2[] = { 1, 2, 5, 8, 9, 7, 7, 6 };
+        removeDuplicates(arr1);
+        removeDuplicatesMethod_2(arr1);
+        commonElements(arr1, arr2);
+    }
+}
+als(words[j])) {
+                    count++;
+                    words[j] = "Visited";
+
+                }
+
+            }
+            if (count > 0 && words[i] != "Visited") {
+                System.out.println(words[i] + "-" + count);
+            }
+        }
+
+    }
+
+    static void checkE() {
+        String s = "umbrella";
+        if (s.contains("e")) {
+            System.out.println("Contains e");
+        } else {
+            System.out.println("Does not contain e");
+        }
+    }
+
+    public static void main(String[] args) {
+        numberOfDuplicates("big black bug bit a big black dog on his big black nose");
+    }
+}

@@ -1,0 +1,47 @@
+// You are given a phone book that consists of people's names and their phone number. After that you will be given some person's name as query. For each query, print the phone number of that person. Use HashMap to implement it.The first line will have an integer denoting the number of entries in the phone book. Each entry consists of two lines: a name and the corresponding phone number.
+// After these, there will be some queries. Each query will contain a person's name. Read the queries until end-of-file.
+// Constraints:
+// A person's name consists of only lower-case English letters and it may be in the format 'first-name last-name' or in the format 'first-name'. Each phone number has exactly 8 digits without any leading zeros.For each case, print "Not found" if the person has no entry in the phone book. Otherwise, print the person's name and phone number.
+
+package LAB_EXAM;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+class PhoneBook {
+    HashMap<String, Integer> map = new HashMap<>();
+
+    void addRecord(String Name, int phoneNumber) {
+        Name = Name.toLowerCase();
+        map.put(Name, phoneNumber);
+    }
+
+    void getrecord() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter query:");
+        while (sc.hasNextLine()) {
+            String query = sc.nextLine();
+            if (map.containsKey(query)) {
+                System.out.println(query + " " + map.get(query));
+            } else {
+                System.out.println("Not found");
+            }
+        }
+        sc.close();
+
+    }
+}
+
+public class Que_8 {
+    public static void main(String[] args) {
+        PhoneBook ph = new PhoneBook();
+        ph.addRecord("Onkar", 12345678);
+        ph.addRecord("shardul", 65464564);
+        ph.addRecord("sandesh", 65465452);
+        ph.addRecord("yashraj", 5646465);
+        ph.addRecord("saurav", 89746466);
+
+        ph.getrecord();
+
+    }
+}

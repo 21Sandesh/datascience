@@ -1,0 +1,161 @@
+package LAB_EXAM;
+
+import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.*;
+
+public class Que_14 implements ActionListener {
+
+    JButton[] functionButtons = new JButton[6];
+    JButton[] numberButtons = new JButton[10];
+    double num1;
+    double num2;
+    String result;
+    char operator;
+    public static JTextField textField;
+    public static JButton equalButton;
+    public static JButton addButton;
+    public static JButton subButton;
+    public static JButton mulButton;
+    public static JButton divButton;
+    public static JButton clearButton;
+
+    void calc() {
+        JFrame frame = new JFrame();
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(4, 4, 10, 10));
+        addButton = new JButton("+");
+        subButton = new JButton("-");
+        mulButton = new JButton("*");
+        divButton = new JButton("/");
+        clearButton = new JButton("C");
+        equalButton = new JButton("=");
+        functionButtons[0] = addButton;
+        functionButtons[1] = subButton;
+        functionButtons[2] = mulButton;
+        functionButtons[3] = divButton;
+        functionButtons[4] = clearButton;
+        functionButtons[5] = equalButton;
+
+        for (int i = 0; i <= 9; i++) {
+            numberButtons[i] = new JButton(String.valueOf(i));
+            numberButtons[i].addActionListener(this);
+        }
+        for (int i = 0; i < 5; i++) {
+            functionButtons[i].addActionListener(this);
+
+        }
+
+        panel.add(numberButtons[1]);
+        panel.add(numberButtons[2]);
+        panel.add(numberButtons[3]);
+        panel.add(functionButtons[0]);
+
+        panel.add(numberButtons[4]);
+        panel.add(numberButtons[5]);
+        panel.add(numberButtons[6]);
+        panel.add(functionButtons[1]);
+        panel.add(numberButtons[7]);
+        panel.add(numberButtons[8]);
+        panel.add(numberButtons[9]);
+        panel.add(functionButtons[2]);
+        panel.add(functionButtons[4]);
+
+        panel.add(numberButtons[0]);
+        panel.add(functionButtons[3]);
+
+        equalButton = new JButton("=");
+        equalButton.addActionListener(this);
+        functionButtons[5] = equalButton;
+        panel.add(equalButton);
+
+        textField = new JTextField(15);
+
+        frame.add(panel);
+
+        frame.getContentPane().add(panel, BorderLayout.CENTER);
+        frame.getContentPane().add(textField, BorderLayout.NORTH);
+        frame.setSize(420, 300);
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        Que_14 clc = new Que_14();
+        clc.calc();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for (int i = 0; i <= 9; i++) {
+            if (e.getSource() == numberButtons[i]) {
+                textField.setText(textField.getText().concat(String.valueOf(i)));
+            }
+        }
+
+        if (e.getSource() == addButton) {
+            num1 = Double.parseDouble(textField.getText());
+            operator = '+';
+            textField.setText("");
+
+        }
+
+        if (e.getSource() == subButton) {
+            num1 = Double.parseDouble(textField.getText());
+            operator = '-';
+            textField.setText("");
+
+        }
+        if (e.getSource() == mulButton) {
+            num1 = Double.parseDouble(textField.getText());
+            operator = '*';
+            textField.setText("");
+
+        }
+        if (e.getSource() == divButton) {
+            num1 = Double.parseDouble(textField.getText());
+            operator = '/';
+            textField.setText("");
+
+        }
+
+        if (e.getSource() == clearButton) {
+            num1 = Double.parseDouble(textField.getText());
+            operator = 'C';
+            textField.setText("");
+
+        }
+
+        if (e.getSource() == equalButton) {
+            num2 = Double.parseDouble(textField.getText());
+            System.out.println(operator);
+            switch (operator) {
+
+                case '+':
+                    result = String.valueOf(num1 + num2);
+                    System.out.println(result);
+                    break;
+                case '-':
+                    result = String.valueOf(num1 - num2);
+                    break;
+                case '/':
+                    result = String.valueOf(num1 / num2);
+                    break;
+                case '*':
+                    result = String.valueOf(num1 * num2);
+                    break;
+                case 'C':
+                    textField.setText(null);
+                    break;
+
+                default:
+                    System.out.println("Enter valid option");
+                    break;
+            }
+            textField.setText(result);
+            num1 = Double.parseDouble(textField.getText());
+
+        }
+
+    }
+}

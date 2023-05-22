@@ -1,0 +1,29 @@
+// 3.1)Java Program to Reverse a String. 
+// 3.2) Write a Java program to check that String is palindrome or not.
+
+package LAB_EXAM;
+
+public class Que_3 {
+
+    static String reverseString(String s) {
+        String ans = "";
+        for (int i = 0; i < s.length(); i++) {
+            ans = s.charAt(i) + ans;
+        }
+        return ans;
+    }
+
+    static void checkPalindrome(String s) {
+        if (reverseString(s).equals(s)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not palindrome");
+        }
+    }
+
+    public static void main(String[] args) {
+        String s = reverseString("Onkar Sangale");
+        System.out.println(s);
+        checkPalindrome("NAYAN");
+    }
+}

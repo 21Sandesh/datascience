@@ -1,0 +1,53 @@
+// Write Java Program to find the transpose of a given matrix . 
+
+package LAB_EXAM;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Que_13 {
+    static void printMatrx(int matrix[][], int m, int n) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    static void transposeMatrix(int matrix[][], int m, int n) {
+        int transpose[][] = new int[m][n];
+
+        printMatrx(matrix, m, n);
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                transpose[i][j] = matrix[j][i];
+            }
+        }
+        printMatrx(transpose, m, n);
+    }
+
+    static void countWordsInFile(String fileName) throws IOException {
+        int wordCount = 0;
+        File file = new File("LAB_EXAM\\Que_14_txt.txt");
+
+        Scanner sc = new Scanner(file);
+        while (sc.hasNext()) {
+
+            sc.next();
+            wordCount++;
+        }
+        System.out.println(wordCount);
+        sc.close();
+
+    }
+
+    public static void main(String[] args) throws IOException {
+        int matrix[][] = { { 1, 3, 5 }, { 2, 4, 6 }, { 1, 2, 3 } };
+        transposeMatrix(matrix, 3, 3);
+        countWordsInFile("LAB_EXAM\\Que_14_txt.txt");
+    }
+}

@@ -1,0 +1,52 @@
+// Write a Java program to create a class called "Student" with a name, grade, and courses attributes, and methods to add and remove courses
+
+package LAB_EXAM;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Student {
+    String name;
+    char grade;
+    List<String> courses;
+
+    Student(String name, char grade) {
+        this.name = name;
+        this.grade = grade;
+        courses = new ArrayList<>();
+    }
+
+    void addCourse(String course) {
+        this.courses.add(course);
+    }
+
+    void removeCourse(String course) {
+        this.courses.remove(course);
+    }
+
+    void displayInfo() {
+        System.out.print("Name" + name + " " + "Grade: " + grade + "Courses : ");
+        for (String course : courses) {
+            System.out.print(course + " ");
+        }
+    }
+
+}
+
+public class Que_21 {
+    public static void main(String[] args) {
+        Student student = new Student("John Doe", 'A');
+
+        student.addCourse("Math");
+        student.addCourse("Science");
+        student.addCourse("English");
+
+        student.displayInfo();
+        System.out.println();
+
+        student.removeCourse("Science");
+        System.out.println();
+
+        student.displayInfo();
+    }
+}
